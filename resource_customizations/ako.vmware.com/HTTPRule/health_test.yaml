@@ -1,0 +1,12 @@
+tests:
+- healthStatus:
+    status: Degraded
+    message: "healthmonitor \"custom-health-monitor\" not found on controller"
+  inputPath: testdata/degraded.yaml
+- healthStatus:
+    status: Progressing
+    message: "Waiting for HTTPRule creation"
+  inputPath: testdata/progressing.yaml
+- healthStatus:
+    status: Healthy
+  inputPath: testdata/healthy.yaml

@@ -1,0 +1,18 @@
+apiVersion: ako.vmware.com/v1alpha1
+kind: HTTPRule
+metadata:
+  name: degraded
+  namespace: ako
+spec:
+  fqdn: testrule.local.arpa
+  paths:
+  - healthMonitors:
+    - custom-health-monitor
+    loadBalancerPolicy:
+      algorithm: LB_ALGORITHM_ROUND_ROBIN
+    target: /
+    tls:
+      type: reencrypt
+status:
+  error: healthmonitor "custom-health-monitor" not found on controller
+  status: Rejected
